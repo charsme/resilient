@@ -50,7 +50,7 @@ $container->set(
             RendererInterface::class,
             DI\object(TwigRenderer::class)
             ->constructor(...array_values($config['view']))
-            ->method('addExtension', DI\object(Mixer::class)->constructor($config['url']))
+            ->method('addExtension', DI\object(Mixer::class)->constructor($config['url']['cdn']))
             ->method('addExtension', DI\get(Slim::class))
             ->lazy()
         );

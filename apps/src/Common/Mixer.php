@@ -11,12 +11,12 @@ use Exception;
 */
 class Mixer extends \Twig_Extension
 {
-    protected $config;
+    protected $cdn;
     protected $manifest;
 
-    public function __construct(array $config)
+    public function __construct(string $cdn)
     {
-        $this->config = $config;
+        $this->cdn = $cdn;
     }
 
     public function getName():string
@@ -41,7 +41,7 @@ class Mixer extends \Twig_Extension
             $path = "/{$path}";
         }
 
-        return ($this->config['cdn'] ? : '') . $path;
+        return ($this->cdn ?: '') . $path;
     }
 
     public function imgAlias($path)
