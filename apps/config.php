@@ -7,7 +7,7 @@ $storage_dir = __DIR__ . '/../storage/';
 
 return [
     'settings' => [
-        'displayErrorDetails' => getenv('DEBUG') ? : false,
+        'displayErrorDetails' => getenv('DEBUG') ?: false,
         'addContentLengthHeader' => true,
         'determineRouteBeforeAppMiddleware' => false,
         'routerCacheFile' => $storage_dir . 'router/router.cache',
@@ -17,12 +17,12 @@ return [
         'site' => [
             'title' => '',
             'descriptions' => '',
-            'url' => getenv('BASE_URL') ? : '/',
+            'url' => getenv('BASE_URL') ?: '/',
             'cover' => ''
         ],
         'appName' => getenv('APP_NAME') ? :'labs',
         'baseUrl' => getenv('BASE_URL') ? :'http://labs.app/',
-        'mode' => getenv('APP_MODE') ? : 'development',
+        'mode' => getenv('APP_MODE') ?: 'development',
         'database' => [
             'default' => require __DIR__ . '/driver/mysql.php',
             'sqlite' => [
@@ -42,17 +42,17 @@ return [
             'path' => getenv('DOCUMENT_ROOT') . '/../resources/views/',
             'options' => [
                 'cache' => $storage_dir . 'views/',
-                'debug' => getenv('DEBUG') ? : false,
+                'debug' => getenv('DEBUG') ?: false,
             ],
         ],
         'log' => [
-            'password' => getenv('LOG_PASSWORD') ? : 'labs-log',
+            'password' => getenv('LOG_PASSWORD') ?: 'labs-log',
             'slack' => [
-                'webhookUrl' => getenv('SLACK_WEBHOOK') ? : '',
-                'channel' => getenv('SLACK_CHANNEL') ? : 'error',
-                'username' => getenv('SLACK_BOT_NAME') ? : 'bot',
+                'webhookUrl' => getenv('SLACK_WEBHOOK') ?: '',
+                'channel' => getenv('SLACK_CHANNEL') ?: 'error',
+                'username' => getenv('SLACK_BOT_NAME') ?: 'bot',
                 'useAttachment' => true,
-                'iconEmoji' => getenv('SLACK_EMOJI') ? : ':robot_face: ',
+                'iconEmoji' => getenv('SLACK_EMOJI') ?: ':robot_face: ',
                 'useShortAttachment' => true,
                 'includeContextAndExtra' => true,
                 'level' => \Monolog\Logger::WARNING
@@ -60,16 +60,16 @@ return [
         ],
         'upload' => [
             'cloudinary' => [
-                "cloud_name" => getenv('CLOUDINARY_CLOUD_NAME') ? : "",
-                "api_key" => getenv('CLOUDINARY_API_KEY') ? : "",
-                "api_secret" => getenv('CLOUDINARY_SECRET') ? : ""
+                "cloud_name" => getenv('CLOUDINARY_CLOUD_NAME') ?: "",
+                "api_key" => getenv('CLOUDINARY_API_KEY') ?: "",
+                "api_secret" => getenv('CLOUDINARY_SECRET') ?: ""
             ],
             
             'local' => $storage_dir . 'upload/',
-            'remote' => getenv('CLOUDINARY_REMOTE_DIR') ? : ''
+            'remote' => getenv('CLOUDINARY_REMOTE_DIR') ?: ''
         ],
         'url' => [
-            'cdn' => getenv('CDN') ? : '',
+            'cdn' => getenv('CDN') ?: '',
         ]
     ]
 ];

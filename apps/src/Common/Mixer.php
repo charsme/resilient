@@ -2,8 +2,8 @@
 
 namespace App\Common;
 
-use \Slim\Http\Uri as SlimUri;
-use \Slim\Interfaces\RouterInterface;
+use Slim\Http\Uri as SlimUri;
+use Slim\Interfaces\RouterInterface;
 use Exception;
 
 /**
@@ -74,21 +74,24 @@ class Mixer extends \Twig_Extension
         return $this->manifest = json_decode(file_get_contents($manifestPath), true);
     }
 
+    protected function slashMe(string $path):string
+    {
+        if ($path && ! starts_with($path, '/')) {
+            return "/{$path}";
+        }
+
+        return $path;
+    }
+
     public function assetsPath($path, $manifestDirectory = ''):string
     {
         $rootPath = getenv('DOCUMENT_ROOT') . '/..';
         $publicFolder = '/public/assets';
 
-        if ($manifestDirectory && ! starts_with($manifestDirectory, '/')) {
-            $manifestDirectory = "/{$manifestDirectory}";
-        }
-
+        $manifestDirectory = $this->slashMe($manifestDirectory);
         $manifest = $this->getManifest($rootPath . $manifestDirectory);
 
-        if (! starts_with($path, '/')) {
-            $path = "/{$path}";
-        }
-
+        $path = $this->slashMe($path);
         $path = $publicFolder . $path;
 
         if (! array_key_exists($path, $manifest)) {

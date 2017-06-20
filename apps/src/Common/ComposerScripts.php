@@ -14,7 +14,7 @@ class ComposerScripts
      */
     public static function postInstall(Event $event)
     {
-        require_once $event->getComposer()->getConfig()->get('vendor-dir').'/autoload.php';
+        require_once $event->getComposer()->getConfig()->get('vendor-dir') . '/autoload.php';
 
         static::copyEnv($event);
         static::createFolder($event);
@@ -28,7 +28,7 @@ class ComposerScripts
      */
     public static function postUpdate(Event $event)
     {
-        require_once $event->getComposer()->getConfig()->get('vendor-dir').'/autoload.php';
+        require_once $event->getComposer()->getConfig()->get('vendor-dir') . '/autoload.php';
 
         static::copyEnv($event);
         static::createFolder($event);
