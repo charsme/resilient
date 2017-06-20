@@ -11,14 +11,14 @@
          bootstrap="test/bootstrap.php"
         >
     <testsuites>
-        <testsuite name="Simple Route Tests">
+        <testsuite name="Simple Recipe Tests">
             <directory>./test/</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>./src/</directory>
+            <directory>./apps/</directory>
         </whitelist>
     </filter>
 </phpunit>

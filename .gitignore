@@ -1,8 +1,6 @@
 /vendor/
 /node_modules/
-/storage/
 /public/assets/
-/test/
 composer.phar
 *.lock
 *.cache

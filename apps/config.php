@@ -10,7 +10,7 @@ return [
         'displayErrorDetails' => getenv('DEBUG') ? : false,
         'addContentLengthHeader' => true,
         'determineRouteBeforeAppMiddleware' => false,
-        'routerCacheFile' => false,//$storage_dir . 'router/routes.cache',
+        'routerCacheFile' => false,
         'proxiesFolder' => $storage_dir . 'proxies/',
     ],
     'config' => [
@@ -41,7 +41,7 @@ return [
         'view' => [
             'path' => getenv('DOCUMENT_ROOT') . '/../resources/views/',
             'options' => [
-                'cache' => false, //$storage_dir . 'views/',
+                'cache' => false,
                 'debug' => getenv('DEBUG') ? : false,
             ],
         ],

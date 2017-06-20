@@ -49,22 +49,15 @@
         "clean-generated-cache-files": "find storage/ -name \\*.cache -type f -print0  | xargs -0 rm -f",
         "clean-generated-php-files": "find storage/ -name \\*.php -type f -print0  | xargs -0 rm -f",
         "clean-generated-json-files": "find storage/ -name \\*.json -type f -print0  | xargs -0 rm -f",
-        "adding-writing-permission-to-storage": "chmod +w storage",
         "post-update-cmd": [
-            "@adding-writing-permission-to-storage",
-            "App\\Common\\ComposerScripts::postUpdate",
             "@clean-generated-cache-files",
             "@clean-generated-php-files",
             "@clean-generated-json-files"
         ],
         "post-install-cmd": [
-            "@adding-writing-permission-to-storage",
-            "App\\Common\\ComposerScripts::postInstall",
             "@clean-generated-cache-files",
             "@clean-generated-php-files",
-            "@clean-generated-json-files",
-            "npm install",
-            "npm run dev"
+            "@clean-generated-json-files"
         ]
     },
     "authors": [{

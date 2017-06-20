@@ -111,4 +111,4 @@ coding_style:
 build:
     environment:
         php:
-            version: 7.0.7
+            version: 7.1.5
