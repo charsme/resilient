@@ -1,6 +1,5 @@
 /vendor/
 /node_modules/
-/public/assets/
 composer.phar
 *.lock
 *.cache

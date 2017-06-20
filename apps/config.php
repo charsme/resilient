@@ -3,14 +3,14 @@
 $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
 $dotenv->load();
 
-$storage_dir = getenv('DOCUMENT_ROOT') . '/../storage/';
+$storage_dir = __DIR__ . '/../storage/';
 
 return [
     'settings' => [
         'displayErrorDetails' => getenv('DEBUG') ? : false,
         'addContentLengthHeader' => true,
         'determineRouteBeforeAppMiddleware' => false,
-        'routerCacheFile' => false,
+        'routerCacheFile' => $storage_dir . 'router/router.cache',
         'proxiesFolder' => $storage_dir . 'proxies/',
     ],
     'config' => [
@@ -41,7 +41,7 @@ return [
         'view' => [
             'path' => getenv('DOCUMENT_ROOT') . '/../resources/views/',
             'options' => [
-                'cache' => false,
+                'cache' => $storage_dir . 'views/',
                 'debug' => getenv('DEBUG') ? : false,
             ],
         ],
